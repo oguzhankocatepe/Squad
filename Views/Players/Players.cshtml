@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Squad.Models.CupPlayer>
+
+@{
+    ViewData["Title"] = "Players";
+}
+
+
+<table class="table">
+   
+    <tbody>
+        <tr>
+            @foreach (var item in Model.Where(m => m.Position == "GK"))
+            {
+
+                <td>
+                    <img src="@Html.Encode(item.Picture)" /><br>
+                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+
+            }
+        </tr>
+        <tr>
+            @foreach (var item in Model.Where(m => m.Position == "DF"))
+            {
+
+                <td>
+                    <img src="@Html.Encode(item.Picture)" /><br>
+                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+
+            }
+        </tr>
+        <tr>
+            @foreach (var item in Model.Where(m => m.Position == "MF"))
+            {
+
+                <td>
+                    <img src="@Html.Encode(item.Picture)" /><br>
+                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+
+            }
+        </tr>
+        <tr>
+            @foreach (var item in Model.Where(m => m.Position == "FW"))
+            {
+
+                <td>
+                    <img src="@Html.Encode(item.Picture)" /><br>
+                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+
+            }
+        </tr>
+    </tbody>
+</table>

@@ -9,50 +9,82 @@
    
     <tbody>
         <tr>
-            @foreach (var item in Model.Where(m => m.Position == "GK"))
-            {
+            @{
+                int count = 0;
+                @foreach (var item in Model.Where(m => m.Position == "GK"))
+                {
 
-                <td>
-                    <img src="@Html.Encode(item.Picture)" /><br>
-                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
-
-            }
-        </tr>
-        <tr>
-            @foreach (var item in Model.Where(m => m.Position == "DF"))
-            {
-
-                <td>
-                    <img src="@Html.Encode(item.Picture)" /><br>
-                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
+                    <td>
+                        <img src="@Html.Encode(item.Picture)" /><br>
+                        @Html.ActionLink(item.Name, "Teams", "Teams", new { id = item.Code }) <br>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    @if (++count % 12 == 0)
+                    {
+                    <tr>
+                    </tr>
+                    }
+                }
 
             }
         </tr>
         <tr>
-            @foreach (var item in Model.Where(m => m.Position == "MF"))
-            {
+            @{
+                count = 0;
+                @foreach (var item in Model.Where(m => m.Position == "DF"))
+                {
 
                 <td>
                     <img src="@Html.Encode(item.Picture)" /><br>
                     @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
                     @Html.DisplayFor(modelItem => item.Position)
                 </td>
+                    @if (++count % 12 == 0)
+                    {
+                    <tr>
+                    </tr>
+                    }
+                }
 
             }
         </tr>
         <tr>
-            @foreach (var item in Model.Where(m => m.Position == "FW"))
-            {
+            @{
+                count = 0;
+                @foreach (var item in Model.Where(m => m.Position == "MF"))
+                {
 
-                <td>
-                    <img src="@Html.Encode(item.Picture)" /><br>
-                    @Html.ActionLink(item.Name, "Teams", "Teams", new {  id=item.Code }) <br>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
+                    <td>
+                        <img src="@Html.Encode(item.Picture)" /><br>
+                        @Html.ActionLink(item.Name, "Teams", "Teams", new { id = item.Code }) <br>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    @if (++count % 12 == 0)
+                    {
+                    <tr>
+                    </tr>
+                    }
+                }
+
+            }
+        </tr>
+        <tr>
+            @{
+                count = 0;
+                @foreach (var item in Model.Where(m => m.Position == "FW"))
+                {
+
+                    <td>
+                        <img src="@Html.Encode(item.Picture)" /><br>
+                        @Html.ActionLink(item.Name, "Teams", "Teams", new { id = item.Code }) <br>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    @if (++count % 12 == 0)
+                    {
+                    <tr>
+                    </tr>
+                    }
+                }
 
             }
         </tr>

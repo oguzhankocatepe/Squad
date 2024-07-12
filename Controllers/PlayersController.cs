@@ -14,9 +14,11 @@ namespace Squad.Controllers
             _logger = logger;
         }
 
-        public IActionResult Players(string? Id)
+        public IActionResult Players(string? Id, string? Code)
         {
-            if (Id != null)
+            if (Code != null)
+                return View(CupPlayerService.Players.Where(player => player.CountryCode == Code).ToList());
+            else if (Id != null)
                 return View(CupPlayerService.Players.Where(player => player.CupCode == Id).ToList());
             else
                 return View(CupPlayerService.Players.ToList());

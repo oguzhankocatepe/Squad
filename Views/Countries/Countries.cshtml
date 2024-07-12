@@ -15,12 +15,13 @@
                  @foreach (var item in Model) {
                
                     <td>
-                        <img src="@Html.Encode(item.Picture)" style="border-width:5px;border-color:black" /><br>
-                                @Html.ActionLink(item.Name, "Players", "Players", new {  id=item.Code  }) 
+                        <img src="@Html.Encode(item.Picture)" /><br>
+                        @Html.ActionLink(item.Name, "Players", "Players", new { id = item.Code , code = item.Code })
                     </td>
                
-                    @if (count % 8 == 0){
-                        
+                    @if (++count % 8 == 0){
+                    <tr>
+                    </tr>
                     }
                 }
              </tr>

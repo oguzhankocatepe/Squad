@@ -26,7 +26,7 @@ namespace Squad.Services
                 {
                     while (dr.Read())
                     {
-                        Teams.Add(new Team(dr.GetString(0), dr.GetString(1)));
+                        Teams.Add(new Team(dr.GetString(0), dr.GetString(1), dr.GetString(2)));
                     }
                 }
                 //close data reader

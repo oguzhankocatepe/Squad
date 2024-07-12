@@ -27,7 +27,7 @@ namespace Squad.Services
                 {
                     while (dr.Read())
                     {
-                        Countries.Add(new Country(dr.GetString(0), dr.GetString(1)));
+                        Countries.Add(new Country(dr.GetString(0), dr.GetString(1), dr.GetString(2)));
                     }
                 }
                 //close data reader

@@ -18,7 +18,7 @@ namespace Squad.Controllers
         public IActionResult Countries(string? Id)
         {
             if (Id != null)
-                return View(CountryService.Countries.Join(CupCountryService.CupCountries.Where(cup => cup.CupCode == Id).ToList(), country => country.Code, cup => cup.CountryCode, (country, cup) => new Country(cup.CupCode+cup.CountryCode, country.Name)).ToList());
+                return View(CountryService.Countries.Join(CupCountryService.CupCountries.Where(cup => cup.CupCode == Id).ToList(), country => country.Code, cup => cup.CountryCode, (country, cup) => new Country(cup.CupCode+cup.CountryCode, country.Name,country.Picture)).ToList());
             else
                 return View(CountryService.Countries);
         }

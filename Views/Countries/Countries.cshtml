@@ -10,16 +10,20 @@
     <tbody>
             @{
             
-                int count = 0;
-                @foreach (var item in Model) {
-                <tr>
+             int count = 0;
+             <tr>
+                 @foreach (var item in Model) {
+               
                     <td>
+                        <img src="@Html.Encode(item.Picture)" style="border-width:5px;border-color:black" /><br>
                                 @Html.ActionLink(item.Name, "Players", "Players", new {  id=item.Code  }) 
                     </td>
-                </tr>
-
+               
+                    @if (count % 8 == 0){
+                        
+                    }
                 }
-
-        }
+             </tr>
+            }
     </tbody>
 </table>

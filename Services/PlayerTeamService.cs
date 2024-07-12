@@ -13,7 +13,9 @@ namespace Squad.Services
             Teams = new List<Team>();
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                string query = @"SELECT TEAMLEAGUECODE , PLAYERCODE FROM TEAMLEAGUEPLAYER";
+                string query = @"SELECT TEAMLEAGUE.TEAMLEAGUECODE , PLAYERCODE ,TEAM.PICTURE FROM TEAMLEAGUEPLAYER INNER JOIN TEAMLEAGUE ON 
+                                TEAMLEAGUE.TEAMLEAGUECODE = TEAMLEAGUEPLAYER.TEAMLEAGUECODE INNER JOIN TEAM ON
+                                TEAMLEAGUE.TEAMCODE = TEAM.CODE";
                 //define the SqlCommand object
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -26,7 +28,7 @@ namespace Squad.Services
                 {
                     while (dr.Read())
                     {
-                        Teams.Add(new Team(dr.GetString(0), dr.GetString(1)));
+                        Teams.Add(new Team(dr.GetString(0), dr.GetString(1), dr.GetString(2)));
                     }
                 }
                 //close data reader

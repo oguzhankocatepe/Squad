@@ -16,7 +16,7 @@
                
                     <td>
                         <img src="@Html.Encode(item.Picture)" /><br>
-                        @Html.ActionLink(item.Name, "Players", "Players", new { id = item.Code , code = item.Code })
+                        @Html.ActionLink(item.Name, "Players", "Players", new { id = item.Code })
                     </td>
                
                     @if (++count % 8 == 0){
